@@ -16,10 +16,10 @@ class ClinicAnimal(models.Model):
         ('male', 'Male'),
         ('female', 'Female')
     ), _('Sex'), required=True)
-    age = fields.Integer(_('Age'))
-    owner_id = fields.Many2one('res.partner', domain=[('customer', '=', True)])
+    age = fields.Integer(_('Age'), track_visibility='always')
+    owner_id = fields.Many2one('res.partner', domain=[('customer', '=', True)], track_visibility='always')
     owner_phone = fields.Char(related='owner_id.phone', string=_('Phone'))
-    active = fields.Boolean(_('Active'), default=True)
+    active = fields.Boolean(_('Active'), default=True, track_visibility='always')
 
     @api.one
     def name_get(self):
