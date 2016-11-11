@@ -8,6 +8,7 @@ from openerp import models, fields, api, _
 
 class ClinicAnimal(models.Model):
     _name = 'clinic.animal'
+    _inherit = ['mail.thread']
 
     name = fields.Char(_('Name'))
     type = fields.Char(_('Type'))
